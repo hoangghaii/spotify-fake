@@ -1,9 +1,11 @@
-import React, { Fragment } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import MainNav from "./main-nav/MainNav";
 import ListNav from "./list-nav/ListNav";
 
 function SideBar(props) {
+	const { handleOpenUtilities } = props;
+
 	return (
 		<div className="flex flex-col side-upper">
 			<svg
@@ -13,12 +15,14 @@ function SideBar(props) {
 			>
 				<path d="M255.8 218c-21 0-38 17-38 38s17 38 38 38 38-17 38-38-17-38-38-38zM102 218c-21 0-38 17-38 38s17 38 38 38 38-17 38-38-17-38-38-38zM410 218c-21 0-38 17-38 38s17 38 38 38 38-17 38-38-17-38-38-38z" />
 			</svg>
-			<MainNav />
+			<MainNav handleOpenUtilities={handleOpenUtilities} />
 			<ListNav />
 		</div>
 	);
 }
 
-SideBar.propTypes = {};
+SideBar.propTypes = {
+	handleOpenUtilities: PropTypes.func,
+};
 
 export default SideBar;

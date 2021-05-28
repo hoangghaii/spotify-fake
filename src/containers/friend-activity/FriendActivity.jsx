@@ -10,7 +10,7 @@ function FriendActivity(props) {
 				Connect with Facebook to see what your friends are playing
 			</p>
 
-			<button className="my-6 block bg-blue-500 py-2 px-6 rounded-full text-sm font-bold uppercase">
+			<button className="outline-non focus:outline-non my-6 block bg-blue-500 py-2 px-6 rounded-full text-sm font-bold uppercase">
 				Connect with facebook
 			</button>
 

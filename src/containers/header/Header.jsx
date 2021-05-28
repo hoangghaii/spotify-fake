@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function Header(props) {
+	const { isOpenUtilities } = props;
+
 	return (
 		<header className="flex justify-center items-center w-full p-4">
 			<div className="flex h-full items-center w-1/2">
@@ -19,11 +21,29 @@ function Header(props) {
 				>
 					<path d="M294.1 256L167 129c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.3 34 0L345 239c9.1 9.1 9.3 23.7.7 33.1L201.1 417c-4.7 4.7-10.9 7-17 7s-12.3-2.3-17-7c-9.4-9.4-9.4-24.6 0-33.9l127-127.1z" />
 				</svg>
-				<input
-					className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-full px-4 appearance-none leading-normal text-gray-700 ml-4"
-					type="email"
-					placeholder="Search"
-				/>
+				{isOpenUtilities === "search" && (
+					<div className="search__box">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							className="h-6 w-6 search__icon"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+						>
+							<path
+								strokeLinecap="round"
+								strokeLinejoin="round"
+								strokeWidth={2}
+								d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+							/>
+						</svg>
+						<input
+							className="search__input bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-full px-4 appearance-none leading-normal text-gray-700 ml-4"
+							type="text"
+							placeholder="Artists, songs, or podcasts"
+						/>
+					</div>
+				)}
 			</div>
 
 			<div className="flex items-center justify-end w-1/2 mr-8">
@@ -48,6 +68,12 @@ function Header(props) {
 	);
 }
 
-Header.propTypes = {};
+Header.propTypes = {
+	isOpenUtilities: PropTypes.string,
+};
+
+Header.defaultProps = {
+	isOpenUtilities: "",
+};
 
 export default Header;

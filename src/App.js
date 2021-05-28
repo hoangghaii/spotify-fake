@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import MusicPlayer from "./components/music-player/MusicPlayer";
 import PlayerContent from "./components/player-content/PlayerContent";
 import FriendActivity from "./containers/friend-activity/FriendActivity";
@@ -6,15 +6,22 @@ import Header from "./containers/header/Header";
 import SideBar from "./containers/sidebar/SideBar";
 
 function App() {
+	const [isOpenUtilities, setIsOpenUtilities] = useState("");
+
+	const onOpenUtilities = (value) => {
+		console.log(value);
+		setIsOpenUtilities(value);
+	};
+
 	return (
 		<div className="max-w-full w-full h-screen overflow-hidden">
 			<div className="flex h-full w-full aside-container">
 				<aside className="h-full w-1/6 xl:w-1/6 bg-gray-900 text-gray-200">
-					<SideBar />
+					<SideBar handleOpenUtilities={onOpenUtilities} />
 				</aside>
 
 				<main className="flex flex-col h-full w-62 xl:w-62 bg-gray-800 text-gray-200">
-					<Header />
+					<Header isOpenUtilities={isOpenUtilities} />
 					<PlayerContent />
 				</main>
 

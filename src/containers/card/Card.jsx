@@ -8,9 +8,9 @@ function Card(props) {
 		<div className="w-1/4 xl:w-1/4 mr-4">
 			<div className="bg-gray-400 h-48 mb-2"></div>
 
-			<h3 className="text-white font-bold text-sm">{title}</h3>
+			<h3 className="text-white font-bold text-sm ellipsis">{title}</h3>
 			{subtitle && (
-				<h4 className="text-gray-400 text-sm font-medium">
+				<h4 className="text-gray-400 text-sm font-medium ellipsis-line">
 					{subtitle}
 				</h4>
 			)}
