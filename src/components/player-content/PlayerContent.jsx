@@ -26,7 +26,7 @@ function PlayerContent(props) {
 		},
 	];
 	return (
-		<div className="max-h-full overflow-y-auto px-12 py-6 mt-10">
+		<div className="max-h-full overflow-y-auto px-12 py-6 mt-10 custom-scrollbar">
 			<PlayerItem
 				titleHeading="Recently played"
 				subTitleHeading=""

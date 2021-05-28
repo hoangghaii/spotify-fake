@@ -2,15 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function NavItem(props) {
-	const { title, links } = props;
+	const { links } = props;
 
 	return (
 		<div className="mb-10 last:mt-4">
-			{title && (
-				<h2 className="uppercase text-xs text-gray-400 tracking-widest mb-2">
-					{title}
-				</h2>
-			)}
 			{links &&
 				links.map((link, index) => {
 					return (
@@ -27,7 +22,6 @@ function NavItem(props) {
 }
 
 NavItem.propTypes = {
-	title: PropTypes.string,
 	links: PropTypes.array,
 };
 

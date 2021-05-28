@@ -5,7 +5,7 @@ function Card(props) {
 	const { title, subtitle } = props;
 
 	return (
-		<div className="w-1/4 xl:w-1/6 mr-4">
+		<div className="w-1/4 xl:w-1/4 mr-4">
 			<div className="bg-gray-400 h-48 mb-2"></div>
 
 			<h3 className="text-white font-bold text-sm">{title}</h3>
