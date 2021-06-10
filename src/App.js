@@ -1,39 +1,52 @@
-import React, { useState } from "react";
-import MusicPlayer from "./components/music-player/MusicPlayer";
-import PlayerContent from "./components/player-content/PlayerContent";
-import FriendActivity from "./containers/friend-activity/FriendActivity";
-import Header from "./containers/header/Header";
-import SideBar from "./containers/sidebar/SideBar";
+import React, { lazy, Suspense } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import queryString from "query-string";
+import { StorageKey } from "./common/storage-key";
+import { authorization } from "./apis";
 
+const DefaultLayout = lazy(() =>
+	import("./components/default-layout/DefaultLayout")
+);
+const PageNotFound = lazy(() =>
+	import("./components/page-not-found/PageNotFound")
+);
 function App() {
-	const [isOpenUtilities, setIsOpenUtilities] = useState("");
+	const code = queryString.parse(window.location.search).code;
 
-	const onOpenUtilities = (value) => {
-		console.log(value);
-		setIsOpenUtilities(value);
+	const getAuthorization = async () => {
+		return await authorization
+			.authorization()
+			.then((res) => {
+				localStorage.setItem(
+					StorageKey.ACCESS_TOKEN,
+					res.data.access_token
+				);
+				localStorage.setItem(
+					StorageKey.REFRESH_TOKEN,
+					res.data.refresh_token
+				);
+			})
+			.catch((error) => console.log(error));
 	};
 
+	if (code) {
+		localStorage.setItem(StorageKey.CODE, code);
+
+		getAuthorization();
+	}
+
 	return (
-		<div className="max-w-full w-full h-screen overflow-hidden">
-			<div className="flex h-full w-full aside-container">
-				<aside className="h-full w-1/6 xl:w-1/6 bg-gray-900 text-gray-200">
-					<SideBar handleOpenUtilities={onOpenUtilities} />
-				</aside>
+		<Router>
+			<Suspense fallback="loading...">
+				<Switch>
+					<Route path="" exact>
+						<DefaultLayout code={code} />
+					</Route>
 
-				<main className="flex flex-col h-full w-62 xl:w-62 bg-gray-800 text-gray-200">
-					<Header isOpenUtilities={isOpenUtilities} />
-					<PlayerContent />
-				</main>
-
-				<aside className="h-full w-22 xl:w-22 bg-gray-900 text-gray-200">
-					<FriendActivity />
-				</aside>
-			</div>
-
-			<div className="w-full bg-gray-700 text-white player-container">
-				<MusicPlayer />
-			</div>
-		</div>
+					<Route component={PageNotFound} />
+				</Switch>
+			</Suspense>
+		</Router>
 	);
 }
 
