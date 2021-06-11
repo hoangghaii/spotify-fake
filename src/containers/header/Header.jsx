@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import React, { useEffect, useState } from "react";
 import { userApi } from "../../apis";
+import { StorageKey } from "../../common/storage-key";
 
 function Header(props) {
 	const { isOpenUtilities } = props;
+	const code = localStorage.getItem(StorageKey.CODE);
+
 	const [user, setUser] = useState({
 		display_name: "account",
 		display_img: (
@@ -48,7 +51,7 @@ function Header(props) {
 				});
 			})
 			.catch((error) => console.log(error));
-	}, []);
+	}, [code]);
 
 	return (
 		<header className="flex justify-center items-center w-full p-4">

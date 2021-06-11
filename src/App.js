@@ -1,8 +1,8 @@
-import React, { lazy, Suspense } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import queryString from "query-string";
-import { StorageKey } from "./common/storage-key";
+import React, { lazy, Suspense, useEffect } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { authorization } from "./apis";
+import { StorageKey } from "./common/storage-key";
 
 const DefaultLayout = lazy(() =>
 	import("./components/default-layout/DefaultLayout")
@@ -10,6 +10,7 @@ const DefaultLayout = lazy(() =>
 const PageNotFound = lazy(() =>
 	import("./components/page-not-found/PageNotFound")
 );
+
 function App() {
 	const code = queryString.parse(window.location.search).code;
 
@@ -29,11 +30,16 @@ function App() {
 			.catch((error) => console.log(error));
 	};
 
-	if (code) {
-		localStorage.setItem(StorageKey.CODE, code);
-
+	useEffect(() => {
 		getAuthorization();
-	}
+		localStorage.setItem(StorageKey.CODE, code);
+	}, [code]);
+
+	// if (code) {
+	// 	localStorage.setItem(StorageKey.CODE, code);
+
+	// 	getAuthorization();
+	// }
 
 	return (
 		<Router>

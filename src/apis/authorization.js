@@ -2,8 +2,12 @@ import axios from "axios";
 import { StorageKey } from "../common/storage-key";
 import queryString from "query-string";
 
-const { REACT_APP_CLIENT_ID, REACT_APP_CLIENT_SECRET, REACT_APP_REDIRECT_URL } =
-	process.env;
+const {
+	REACT_APP_BASE_API,
+	REACT_APP_CLIENT_ID,
+	REACT_APP_CLIENT_SECRET,
+	REACT_APP_REDIRECT_URL,
+} = process.env;
 
 export const authorization = {
 	async authorization() {
@@ -24,7 +28,7 @@ export const authorization = {
 
 		try {
 			const respon = axios({
-				url: `https://accounts.spotify.com/api/token`,
+				url: `${REACT_APP_BASE_API}api/token`,
 				method: "POST",
 				headers: config,
 				data: params,
