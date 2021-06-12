@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { FriendActivity, Header, SideBar } from "../../containers/index";
-import { MusicPlayer, AppContent } from "../index";
+import { FriendActivity, Header, SideBar } from "../index";
+import { MusicPlayer, AppContent } from "../../components/index";
 
 function DefaultLayout(props) {
 	const [isOpenUtilities, setIsOpenUtilities] = useState("");

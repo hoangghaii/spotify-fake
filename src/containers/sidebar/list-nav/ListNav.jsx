@@ -9,10 +9,7 @@ function ListNav(props) {
 	const getPlayLists = async () => {
 		return await spotifyApi
 			.getPlayLists()
-			.then((res) => {
-				console.log(res);
-				setPlayLists(res.data.items);
-			})
+			.then((res) => setPlayLists(res.data.items))
 			.catch((err) => console.log(err));
 	};
 

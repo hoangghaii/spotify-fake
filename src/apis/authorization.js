@@ -1,9 +1,9 @@
 import axios from "axios";
-import { StorageKey } from "../common/storage-key";
 import queryString from "query-string";
+import { StorageKey } from "../common/storage-key";
 
 const {
-	REACT_APP_BASE_API,
+	REACT_APP_BASE_AUTHORIZE_URL,
 	REACT_APP_CLIENT_ID,
 	REACT_APP_CLIENT_SECRET,
 	REACT_APP_REDIRECT_URL,
@@ -28,7 +28,7 @@ export const authorization = {
 
 		try {
 			const respon = axios({
-				url: `${REACT_APP_BASE_API}api/token`,
+				url: `${REACT_APP_BASE_AUTHORIZE_URL}api/token`,
 				method: "POST",
 				headers: config,
 				data: params,

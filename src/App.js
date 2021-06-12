@@ -5,10 +5,10 @@ import { authorization } from "./apis";
 import { StorageKey } from "./common/storage-key";
 
 const DefaultLayout = lazy(() =>
-	import("./components/default-layout/DefaultLayout")
+	import("./containers/default-layout/DefaultLayout")
 );
 const PageNotFound = lazy(() =>
-	import("./components/page-not-found/PageNotFound")
+	import("./containers/page-not-found/PageNotFound")
 );
 
 function App() {

@@ -25,6 +25,17 @@ const spotifyApi = {
 			return error;
 		}
 	},
+
+	async getLikedSongs() {
+		const url = "v1/me/tracks";
+
+		try {
+			const res = axiosAuthClient.get(url);
+			return res;
+		} catch (error) {
+			return error;
+		}
+	},
 };
 
 export default spotifyApi;

@@ -25,7 +25,6 @@ function Header(props) {
 		userApi
 			.detailUser()
 			.then((res) => {
-				console.log(res);
 				setUser({
 					display_name: res.data.display_name,
 					display_img: (

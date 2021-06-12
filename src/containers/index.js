@@ -4,5 +4,16 @@ import Header from "./header/Header";
 import Heading from "./heading/Heading";
 import PlayerItem from "./player-item/PlayerItem";
 import SideBar from "./sidebar/SideBar";
+import DefaultLayout from "./default-layout/DefaultLayout";
+import PageNotFound from "./page-not-found/PageNotFound";
 
-export { Header, Heading, Card, PlayerItem, SideBar, FriendActivity };
+export {
+	DefaultLayout,
+	PageNotFound,
+	Header,
+	Heading,
+	Card,
+	PlayerItem,
+	SideBar,
+	FriendActivity,
+};

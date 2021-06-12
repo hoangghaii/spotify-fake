@@ -1,7 +1,7 @@
 import AppContent from "./app-content/AppContent";
-import DefaultLayout from "./default-layout/DefaultLayout";
+import Home from "./home/Home";
 import MusicPlayer from "./music-player/MusicPlayer";
-import PageNotFound from "./page-not-found/PageNotFound";
-import PlayerContent from "./player-content/PlayerContent";
+import Search from "./search/Search";
+import YourLibrary from "./your-library/YourLibrary";
 
-export { DefaultLayout, AppContent, MusicPlayer, PageNotFound, PlayerContent };
+export { AppContent, MusicPlayer, Home, Search, YourLibrary };

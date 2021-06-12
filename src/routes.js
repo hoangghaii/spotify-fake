@@ -1,8 +1,8 @@
 import { lazy } from "react";
 
-const PlayerContent = lazy(() =>
-	import("./components/player-content/PlayerContent")
-);
+const Home = lazy(() => import("./components/home/Home"));
+const YourLibrary = lazy(() => import("./components/your-library/YourLibrary"));
+const Search = lazy(() => import("./components/search/Search"));
 
 export const mainRoutes = [
 	{
@@ -18,7 +18,7 @@ export const mainRoutes = [
 				<path d="M208 448V320h96v128h97.6V256H464L256 64 48 256h62.4v192z" />
 			</svg>
 		),
-		component: PlayerContent,
+		component: Home,
 	},
 	{
 		path: "/search",
@@ -37,12 +37,12 @@ export const mainRoutes = [
 				<path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
 			</svg>
 		),
-		component: PlayerContent,
+		component: Search,
 	},
 	{
 		path: "/library",
 		exact: true,
-		name: "Library",
+		name: "Your library",
 		icon: (
 			<svg
 				className="h-6 w-6 mr-4 ml-4"
@@ -54,7 +54,7 @@ export const mainRoutes = [
 				<path d="M207.1 183.4c-2.6-2.7-6.2-4.2-10-4.2-3.7 0-7.2 1.4-9.8 4.1-19.8 19.5-30.8 45.6-30.8 73.3 0 27.1 10.5 52.7 29.5 72.1 2.7 2.7 6.2 4.2 10 4.2 3.7 0 7.2-1.4 9.8-4 2.7-2.6 4.2-6.1 4.2-9.9 0-3.8-1.4-7.3-4.1-10-13.8-14-21.4-32.6-21.4-52.5 0-20.3 8-39.2 22.4-53.4 5.4-5.2 5.5-14.1.2-19.7zM325.7 183.2c-2.6-2.6-6-4-9.8-4-3.8 0-7.3 1.5-10 4.1-5.4 5.4-5.4 14.3.1 19.8 14.5 14.3 22.4 33.3 22.4 53.5 0 19.8-7.6 38.5-21.5 52.5-2.6 2.6-4.1 6.2-4 9.9 0 3.7 1.5 7.2 4.1 9.8 2.6 2.6 6.2 4.1 9.8 4.1 3.7 0 7.3-1.5 9.9-4.2 19.1-19.4 29.6-45 29.6-72.1.1-27.8-10.8-53.8-30.6-73.4zM256 218c-21 0-38 17-38 38s17 38 38 38 38-17 38-38-17.1-38-38-38z" />
 			</svg>
 		),
-		component: PlayerContent,
+		component: YourLibrary,
 	},
 ];
 
@@ -79,7 +79,7 @@ export const secondRoutes = [
 				/>
 			</svg>
 		),
-		component: PlayerContent,
+		component: Home,
 	},
 	{
 		path: "/liked-song",
@@ -101,6 +101,6 @@ export const secondRoutes = [
 				/>
 			</svg>
 		),
-		component: PlayerContent,
+		component: Home,
 	},
 ];
