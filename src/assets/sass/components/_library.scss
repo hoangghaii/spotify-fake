@@ -29,3 +29,27 @@
 		z-index: 1;
 	}
 }
+
+.library-list {
+	&__list {
+		display: flex;
+		align-items: center;
+	}
+
+	&__item {
+		margin: 0 10px;
+		padding: 9px 10px;
+		min-width: 98px;
+		background-color: transparent;
+		font-size: 15px;
+		font-weight: bold;
+		text-align: center;
+		border-radius: 5px;
+		cursor: pointer;
+		transition: all 0.25s ease-in-out;
+
+		&-active {
+			background-color: #424242;
+		}
+	}
+}

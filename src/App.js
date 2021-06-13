@@ -1,6 +1,11 @@
 import queryString from "query-string";
 import React, { lazy, Suspense, useEffect } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+	BrowserRouter as Router,
+	Route,
+	Switch,
+	Redirect,
+} from "react-router-dom";
 import { authorization } from "./apis";
 import { StorageKey } from "./common/storage-key";
 
@@ -35,17 +40,11 @@ function App() {
 		localStorage.setItem(StorageKey.CODE, code);
 	}, [code]);
 
-	// if (code) {
-	// 	localStorage.setItem(StorageKey.CODE, code);
-
-	// 	getAuthorization();
-	// }
-
 	return (
 		<Router>
 			<Suspense fallback="loading...">
 				<Switch>
-					<Route path="" exact>
+					<Route exact path="">
 						<DefaultLayout code={code} />
 					</Route>
 

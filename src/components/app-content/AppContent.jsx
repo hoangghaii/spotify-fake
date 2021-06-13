@@ -26,7 +26,7 @@ function AppContent(props) {
 					);
 				})}
 
-				<Redirect exact from="" to="/home" />
+				{/* <Redirect exact from="" to="/home" /> */}
 			</Switch>
 		</Suspense>
 	);

@@ -16,7 +16,7 @@ function Card(props) {
 						/>
 					</div>
 				) : (
-					<div className="bg-gray-400 h-full"></div>
+					<div className="bg-gray-600 h-full"></div>
 				)}
 
 				<svg

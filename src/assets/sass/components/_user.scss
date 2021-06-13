@@ -1,0 +1,38 @@
+.user {
+	position: relative;
+
+	&__image {
+		position: absolute;
+		top: 50%;
+		left: -26px;
+		transform: translateY(-50%);
+		width: 36px;
+		height: 36px;
+		border-radius: 50%;
+		overflow: hidden;
+	}
+
+	&__dropdown {
+		display: flex;
+		align-items: center;
+		background-color: #050505;
+		border-radius: 0 100px 100px 0;
+		padding: 5px 10px;
+		padding-left: 15px;
+	}
+
+	&__name {
+		display: inline-block;
+		font-size: 14.5px;
+		font-weight: bold;
+		width: 120px;
+		white-space: nowrap;
+		overflow: hidden !important;
+		text-overflow: ellipsis;
+	}
+
+	&__dropdown-icon {
+		width: 16px;
+		height: 16px;
+	}
+}
