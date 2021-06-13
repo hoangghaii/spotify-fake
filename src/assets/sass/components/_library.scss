@@ -1,0 +1,31 @@
+.library {
+	display: flex;
+	flex-wrap: wrap;
+
+	&__likedsongs {
+		position: relative;
+	}
+
+	&_playlist {
+		grid-column: 1/2;
+	}
+
+	&__player-icon {
+		position: absolute;
+		bottom: 10px;
+		right: 15px;
+		visibility: hidden;
+		z-index: -1;
+		width: 50px;
+		height: 50px;
+		cursor: pointer;
+		transition: all 0.25s ease-in-out;
+	}
+
+	&__likedsongs:hover &__player-icon,
+	&__playlist:hover &__player-icon {
+		bottom: 15px;
+		visibility: visible;
+		z-index: 1;
+	}
+}

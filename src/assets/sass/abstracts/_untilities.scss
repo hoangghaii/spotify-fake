@@ -31,6 +31,14 @@
 	width: 64%;
 }
 
+.w-23 {
+	width: 23%;
+}
+
+.w-46 {
+	width: 48%;
+}
+
 .ellipsis {
 	display: inline-block;
 	width: 100%;
@@ -44,5 +52,13 @@
 	text-overflow: ellipsis;
 	display: -webkit-box;
 	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+
+.ellipsis-line-3 {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
 	-webkit-box-orient: vertical;
 }
