@@ -36,6 +36,8 @@ function Header(props) {
 		userApi
 			.detailUser()
 			.then((res) => {
+				console.log(res);
+				localStorage.setItem(StorageKey.USER_ID, res.data.id);
 				setUser({
 					display_name: res.data.display_name,
 					display_img: (

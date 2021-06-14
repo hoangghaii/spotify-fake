@@ -13,17 +13,8 @@ function ListNav(props) {
 			.catch((err) => console.log(err));
 	};
 
-	const getFollowing = async () => {
-		return await spotifyApi
-			.getFollowing()
-			.then((res) => {
-				console.log(res);
-			})
-			.catch((err) => console.log(err));
-	};
 	useEffect(() => {
 		getPlayLists();
-		getFollowing();
 	}, []);
 
 	return (
