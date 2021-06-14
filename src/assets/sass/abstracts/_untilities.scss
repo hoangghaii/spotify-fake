@@ -1,4 +1,11 @@
 /* =================== utilities ================== */
+button {
+	&:focus,
+	&:active {
+		outline: none;
+	}
+}
+
 .hide-scroll {
 	-ms-overflow-style: none; /* IE and Edge */
 	scrollbar-width: none; /* Firefox */

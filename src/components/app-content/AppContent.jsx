@@ -1,6 +1,7 @@
 import React, { Suspense } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import { mainRoutes, secondRoutes } from "../../routes";
+import { libraryRoutes } from "./../../containers/header/library-list/library-routes";
 
 function AppContent(props) {
 	const routes = [...mainRoutes, ...secondRoutes];
@@ -26,7 +27,23 @@ function AppContent(props) {
 					);
 				})}
 
-				{/* <Redirect exact from="" to="/home" /> */}
+				{libraryRoutes.map(
+					(route, index) =>
+						route.component && (
+							<Route
+								key={index}
+								exact={route.exact}
+								path={route.path}
+								render={(props) => (
+									<>
+										<route.component {...props} />
+									</>
+								)}
+							/>
+						)
+				)}
+
+				<Redirect exact from="" to="/home" />
 			</Switch>
 		</Suspense>
 	);

@@ -1,7 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { NavLink, Redirect } from "react-router-dom";
 import { libraryRoutes } from "./library-routes";
-import { Redirect, NavLink } from "react-router-dom";
 
 function LibraryList(props) {
 	return (
@@ -18,7 +17,7 @@ function LibraryList(props) {
 					</NavLink>
 				))}
 
-				{/* <Redirect to="/library/playlists" /> */}
+				<Redirect to="/library/playlists" />
 			</ul>
 		</nav>
 	);
