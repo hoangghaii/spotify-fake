@@ -16,7 +16,7 @@ function Header(props) {
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					className="bg-white"
-					style={{ width: "36px", height: "36px" }}
+					style={{ width: "30px", height: "30px" }}
 					fill="none"
 					viewBox="0 0 24 24"
 					stroke="currentColor"
@@ -36,7 +36,6 @@ function Header(props) {
 		userApi
 			.detailUser()
 			.then((res) => {
-				console.log(res);
 				localStorage.setItem(StorageKey.USER_ID, res.data.id);
 				setUser({
 					display_name: res.data.display_name,
@@ -56,7 +55,7 @@ function Header(props) {
 			})
 			.catch((error) => console.log(error));
 	}, [code]);
-
+	//flex justify-between items-center w-full p-4
 	return (
 		<header className="flex justify-between items-center w-full p-4">
 			<div className="flex h-full items-center">

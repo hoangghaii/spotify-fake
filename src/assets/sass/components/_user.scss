@@ -4,10 +4,10 @@
 	&__image {
 		position: absolute;
 		top: 50%;
-		left: -26px;
+		left: -20px;
 		transform: translateY(-50%);
-		width: 36px;
-		height: 36px;
+		width: 30px;
+		height: 30px;
 		border-radius: 50%;
 		overflow: hidden;
 	}
@@ -23,7 +23,7 @@
 
 	&__name {
 		display: inline-block;
-		font-size: 14.5px;
+		font-size: 14px;
 		font-weight: bold;
 		width: 120px;
 		white-space: nowrap;

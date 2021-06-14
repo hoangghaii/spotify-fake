@@ -47,6 +47,20 @@ const spotifyApi = {
 			return error;
 		}
 	},
+
+	async getNewReleases() {
+		const url = "v1/browse/new-releases";
+		const params = {
+			limit: 1,
+		};
+
+		try {
+			const res = axiosAuthClient.get(url, { params: params });
+			return res;
+		} catch (error) {
+			return error;
+		}
+	},
 };
 
 export default spotifyApi;
