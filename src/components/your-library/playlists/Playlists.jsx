@@ -84,7 +84,7 @@ function Playlists(props) {
 					<Card
 						classname="library__playlist w-23 h-72 mr-4 mb-4 p-4 bg-gray-900 hover:bg-gray-700 transition-all shadow rounded-md"
 						key={index}
-						track={track}
+						content={track}
 					/>
 				))}
 			</div>

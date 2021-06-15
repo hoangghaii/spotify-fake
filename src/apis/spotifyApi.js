@@ -1,3 +1,4 @@
+import { StorageKey } from "../common/storage-key";
 import axiosAuthClient from "./axiosAuthClient";
 
 const spotifyApi = {
@@ -56,6 +57,53 @@ const spotifyApi = {
 
 		try {
 			const res = axiosAuthClient.get(url, { params: params });
+			return res;
+		} catch (error) {
+			return error;
+		}
+	},
+
+	async getRecentlyPlayed() {
+		const url = "v1/me/player/recently-played";
+		const params = {
+			limit: 4,
+		};
+
+		try {
+			const res = axiosAuthClient.get(url, { params: params });
+			return res;
+		} catch (error) {
+			return error;
+		}
+	},
+
+	async getAllFeaturedPlaylists() {
+		const url = "v1/browse/featured-playlists";
+
+		try {
+			const res = axiosAuthClient.get(url);
+			return res;
+		} catch (error) {
+			return error;
+		}
+	},
+
+	async getTopArtists() {
+		const url = "v1/me/top/artists";
+
+		try {
+			const res = axiosAuthClient.get(url);
+			return res;
+		} catch (error) {
+			return error;
+		}
+	},
+
+	async getTopTracks() {
+		const url = "v1/me/top/tracks";
+
+		try {
+			const res = axiosAuthClient.get(url);
 			return res;
 		} catch (error) {
 			return error;
